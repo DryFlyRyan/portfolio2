@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html ng-app="portfolio">
+  <head>
+    <meta charset="utf-8">
+
+    <!-- <link rel="stylesheet" href="/css/bootstrap.css" media="screen" title="no title" charset="utf-8"> -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" media="screen" title="no title" charset="utf-8">
+
+    <link href='https://fonts.googleapis.com/css?family=Rokkitt:700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="/css/style.css" media="screen">
+
+
+    <title>Ryan's Ramblings</title>
+    <base href="/" />
+  </head>
+  <body>
+    <div class="social-link-container">
+      <a href="https://www.linkedin.com/in/valueinvalueadded" class="social-btn linkedin-btn" target="_blank"><i class="fa fa-linkedin-square fa-2x"></i></a>
+      <a href="https://twitter.com/DryFlyRyan" class="social-btn twitter-btn" target="_blank"><i class="fa fa-twitter-square fa-2x"></i></a>
+      <a href="https://github.com/DryFlyRyan" class="social-btn github-btn" target="_blank"><i class="fa fa-github-alt fa-2x"></i></a>
+    </div>
+    <main>
+      <div class="box-container" ng-controller="boxController" ng-init="landingPageToggle()">
+        <section class="bio-box content-box" ng-class="{'box-regular': landingPage, 'box-grow': BioFocus, 'box-shrink':  !BioFocus && !landingPage}" ng-click="toggleFocus('biography')">
+          <div class="background-div biography-background" ng-class="{'grayscale-heavy': BioFocus, 'grayscale-light': !BioFocus}">
+          </div>
+          <div class="content-container">
+            <div class="title-window">
+              <span class="title" ng-class="{'title-vertical': !landingPage}">BIOGRAPHY</span>
+            </div>
+            <div class="content-window ng-hide" ng-hide="!BioFocus">
+
+            </div>
+          </div>
+        </section>
+        <section class="portfolio-box content-box" ng-class="{'box-regular': landingPage, 'box-grow': PortfolioFocus, 'box-shrink':  !PortfolioFocus && !landingPage}" ng-click="toggleFocus('portfolio')">
+          <div class="background-div portfolio-background" ng-class="{'grayscale-heavy': PortfolioFocus, 'grayscale-light': !PortfolioFocus}">
+
+          </div>
+          <div class="content-container">
+            <div class="title-window">
+              <span class="title" ng-class="{'title-vertical': !landingPage}">PORTFOLIO</span>
+              <!-- <p style="color: white">
+                BioFocus = {{BioFocus}}
+                </br>
+                PortfolioFocus = {{PortfolioFocus}}  </br>
+                ContactFocus = {{ContactFocus}}
+                </br>
+                landingPage = {{landingPage}}
+              </p> -->
+            </div>
+            <div class="content-window ng-hide"  ng-hide="!PortfolioFocus">
+              <div class="project-card">
+                <div class="top-box">
+                  <div class="photo-link-container">
+                    <a href="" class="photo-link">
+                      <img class="project-photo" src="http://appbalo.com/wp-content/uploads/2014/08/Square-InstaPic---No-crop.png" alt="dummy image" />
+                    </a>
+                  </div>
+                  <div class="details-links">
+                    <a href="" class="details">
+                      <span class="details">1/2/93</span>
+                    </a>
+
+                    <a href=""><span class="details">Project Repo</span></a>
+
+                    <a href=""><span class="details">Site Link</span></a>
+                  </div>
+                </div>
+                <div class="description-box">
+                  <p>
+                    This is a short description that will tease a longer description.
+                  </p>
+                </div>
+                <div class="interaction-box">
+                  <div class="interaction-tab">
+                    <a href="question-link interaction-link"><span class="fa fa-question-circle fa-3x"></span></a>
+                  </div>
+                  <div class="interaction-tab">
+                    <a href="like-link interaction-link"><span class="fa fa-thumbs-o-up fa-3x"></span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </section>
+        <section class="contact-box content-box" ng-class="{'box-regular': landingPage, 'box-grow': ContactFocus, 'box-shrink':  !ContactFocus && !landingPage}" ng-click="toggleFocus('contact')">
+          <div class="background-div contact-background" ng-class="{'grayscale-heavy': ContactFocus, 'grayscale-light': !ContactFocus}">
+          </div>
+          <div class="content-container">
+            <div class="title-window">
+              <span class="title" ng-class="{'title-vertical': !landingPage}">CONTACT</span>
+            </div>
+            <div class="content-window ng-hide" ng-hide="!ContactFocus">
+
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
+      <script src="https://angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
+      <script src="ajax.googleapis.com/ajax/libs/angularjs/X.Y.Z/angular-animate.js"></script>
+      <script src="js/app.js" charset="utf-8"></script>
+      <script src="js/controllers.js" charset="utf-8"></script>
+      <script src="js/services.js" charset="utf-8"></script>
+    </footer>
+  </body>
+</html>

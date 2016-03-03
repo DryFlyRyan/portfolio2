@@ -1,0 +1,355 @@
+// FONTS
+
+@import url(https://fonts.googleapis.com/css?family=Rokkitt:700);
+
+$rokkitt: 'Rokkitt', serif;
+
+// VARIABLES
+
+/* MIXINS */
+
+@mixin flexColumnCenter {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+@mixin flexColumnStretch {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  align-content: stretch;
+  justify-content:center;
+}
+
+@mixin flexColumnStart {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;;
+  align-content: flex-start;;
+  justify-content:center;
+}
+
+@mixin flexRowStretch {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+  align-content: stretch;
+  justify-content:center;
+}
+
+@mixin flexRowSpread {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  align-content: space-between;
+  justify-content: space-between;
+}
+
+@mixin flexRow {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  align-content: center;
+}
+
+@mixin flexRowRight {
+  @include flexRow;
+  justify-content:flex-end;
+}
+
+@mixin flexRowLeft {
+  @include flexRow;
+  justify-content: flex-start;
+}
+
+@mixin flexRowCenter {
+  @include flexRow;
+  justify-content: center;
+}
+
+/* Top Level Element Styling */
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  // background: black;
+  // overflow: hidden;
+}
+
+body > * {
+  box-sizing: border-box;
+}
+
+body:before {
+  content: "";
+  position: fixed;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  z-index: 100;
+  -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+  -moz-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+  box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+}
+
+// Container Styling
+
+.box-container {
+  @include flexRowStretch;
+}
+
+// BOX STYLING
+
+//Content Box (Top Level Boxes)
+
+.content-box {
+  height: 100vh;
+
+  // width: 33.33%;
+  border-right: 5px solid white;
+  box-sizing: border-box;
+  // flex-grow: 1;
+  transition: all 0.2s ease;
+  // h1 {
+  //   transition: all 1s ease;
+  // }
+}
+
+.content-box:nth-child(3) {
+  border: none;
+}
+
+.content-container {
+  @include flexRowSpread;
+  height: 100vh;
+  width: 100%;
+}
+
+.title-window {
+  @include flexColumnCenter;
+  flex-grow: 1;
+}
+
+.content-window {
+  display: inline-block;
+  height: 100%;
+  flex-grow: 5;
+}
+
+.box-regular {
+  flex-grow: 1;
+  .content-window {
+    @include flexColumnCenter;
+  };
+}
+
+.box-grow {
+  flex-grow: 10;
+  .content-window {
+    @include flexColumnStart;
+  };
+}
+
+.box-shrink {
+  // flex-grow: 1;
+  min-width: 5%;
+  .content-window {
+    @include flexColumnStart;
+  }
+}
+
+// Portfolio Boxes
+
+.project-card {
+  max-width: 47.5%;
+  background: white;
+  @include flexColumnCenter;
+  display: inline-block;
+  padding: 5px;
+}
+
+.top-box,
+.description-box,
+.interaction-box {
+  max-width: 100%
+}
+
+.top-box {
+  @include flexRowSpread;
+}
+
+.photo-link-container {
+  @include flexRowCenter;
+  flex-grow: 1;
+  max-width: 45%;
+  // display: inline-block;
+}
+
+
+.details-links {
+  @include flexColumnStart;
+  max-width: 45%;
+  flex-grow: 2;
+  > a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.details {
+  display: inline-block;
+  min-width: 95%;
+}
+
+.details:visited {
+  color: inherit;
+}
+
+.photo-link {
+  @include flexRowCenter;
+  // max-width: 75%;
+}
+
+.project-photo {
+  max-width: 50%;
+}
+
+.details-links {
+  @include flexColumnStart;
+  display: inline-block;
+}
+
+.description-box {
+  min-width: 90%;
+  background: rgba(240,240,240, 1);
+}
+
+.interaction-box {
+  @include flexRowSpread;
+  min-width: 100%;
+}
+
+.interaction-link {
+  text-decoration: none;
+  color: inherit;
+  min-width: 47.5%
+}
+
+.interaction-link:hover,
+.interaction-link:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+.interaction-tab:first-child {
+  border-right: 2px solid rgb(90,90,90);
+  min-width: 47.5%;
+}
+
+
+// Social Links
+
+.social-link-container {
+  @include flexRowRight;
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  margin-top: 0.5%;
+  //Social Buttons
+  .social-btn {
+    text-decoration: none;
+    color: rgba(90,90,90,1);
+    margin: 2px 3px;
+  }
+  .social-btn:hover {
+    color: rgba(90,90,90,1);
+  }
+  .social-btn:visited {
+    color: rgba(90,90,90,1);
+  }
+  // Hover Colors
+  .linkedin-btn:hover {
+    color: rgba(3, 102, 153, 1);
+  }
+  .twitter-btn:hover {
+    color: rgba(85, 172, 238,1);
+  }
+  .github-btn:hover {
+    color: rgba(255, 165, 0, 1);
+  }
+}
+
+// Element Styling
+
+.title {
+  display: inline-block;
+  font-family: $rokkitt;
+  font-weight: 700;
+  font-size: 24pt;
+  color: rgba(255, 165, 0, 1);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.title-vertical {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+// Backgrounds
+
+.background-div {
+  position: absolute;
+  // top: 0;
+  // left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: -1;
+}
+
+.biography-background {
+  background: url('../media/mountains.jpg') no-repeat center center fixed;
+}
+
+.portfolio-background {
+  background: url('../media/workshop.jpg') no-repeat center center fixed;
+}
+
+.contact-background {
+  background: url('../media/envelopes.jpg') no-repeat center center fixed;
+}
+
+// Effects
+
+.grayscale-heavy {
+	filter: grayscale(100%);
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	filter: grayscale(100%);
+}
+
+.grayscale-light {
+	filter: grayscale(50%);
+	-webkit-filter: grayscale(50%);
+	-moz-filter: grayscale(50%);
+	-o-filter: grayscale(50%);
+	-ms-filter: grayscale(50%);
+	filter: grayscale(50%);
+}
