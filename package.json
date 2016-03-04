@@ -2,7 +2,7 @@
   "name": "portfolio2",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./server/app.js",
   "dependencies": {
     "dotenv": "^2.0.0",
     "express": "^4.13.4",
