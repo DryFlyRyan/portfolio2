@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/css/style.css" media="screen">
 
 
-    <title>Ryan's Ramblings</title>
+    <title>Ryan P Douglas | Web Developer</title>
     <base href="/" />
   </head>
   <body>
@@ -23,6 +23,7 @@
     </div>
     <main>
       <div class="box-container" ng-controller="boxController" ng-init="landingPageToggle()">
+        <!-- Bio Box -->
         <section class="bio-box content-box" ng-class="{'box-regular': landingPage, 'box-grow': BioFocus, 'box-shrink':  !BioFocus && !landingPage}" ng-click="toggleFocus('biography')">
           <div class="background-div biography-background" ng-class="{'grayscale-heavy': BioFocus, 'grayscale-light': !BioFocus}">
           </div>
@@ -30,11 +31,52 @@
             <div class="title-window">
               <span class="title" ng-class="{'title-vertical': !landingPage}">BIOGRAPHY</span>
             </div>
-            <div class="content-window ng-hide" ng-hide="!BioFocus">
+            <div class="content-window ng-hide bio-window" ng-hide="!BioFocus">
+              <div class="main-banner">
+                <div class="top-container">
+                  <div class="photo-container">
+                    <!-- <div class="photo"> -->
+                      <img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAYFAAAAJDRiNzc2OTA2LWRjMGEtNDA0ZS05MmQ5LTI3MWVmNDgzNDZjMQ.jpg" alt="" class="profile-img"/>
+                    <!-- </div> -->
+                  </div>
+                  <div class="info-container">
+                    <div class="top-bar-container">
+                      <span class="name-text title">Ryan Douglas</span>
+
+                    </div>
+                    <div class="bio-container">
+                      <p class="jobs-text">&bull; web app maker &bull; semantic html writer &bull; business developer &bull; digital marketer &bull; business owner &bull; avid angler &bull; dog trainer &bull; beer creator &bull; </p>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <div class="main-banner">
+                <div class="info-container">
+                  <div class="header-container">
+                    <span class="header-text title">Biography</span>
+
+                  </div>
+                  <div class="bio-container">
+                    <p>
+                      This is a longer paragraph that will serve to test my bio window and ensure that spacing is correct
+                    </p>
+                    <p>
+                      This is a longer paragraph that will serve to test my bio window and ensure that spacing is correct
+                    </p>
+                    <p>
+                      This is a longer paragraph that will serve to test my bio window and ensure that spacing is correct
+                    </p>
+
+                  </div>
+
+                </div>
+              </div>
 
             </div>
           </div>
         </section>
+        <!-- Portfolio Box -->
         <section class="portfolio-box content-box" ng-class="{'box-regular': landingPage, 'box-grow': PortfolioFocus, 'box-shrink':  !PortfolioFocus && !landingPage}" ng-click="toggleFocus('portfolio')">
           <div class="background-div portfolio-background" ng-class="{'grayscale-heavy': PortfolioFocus, 'grayscale-light': !PortfolioFocus}">
 
@@ -51,43 +93,48 @@
                 landingPage = {{landingPage}}
               </p> -->
             </div>
-            <div class="content-window ng-hide"  ng-hide="!PortfolioFocus">
-              <div class="project-card">
-                <div class="top-box">
-                  <div class="photo-link-container">
-                    <a href="" class="photo-link">
-                      <img class="project-photo" src="http://appbalo.com/wp-content/uploads/2014/08/Square-InstaPic---No-crop.png" alt="dummy image" />
-                    </a>
-                  </div>
-                  <div class="details-links">
-                    <a href="" class="details">
-                      <span class="details">1/2/93</span>
-                    </a>
+            <div class="content-window portfolio-window ng-hide " ng-show="PortfolioFocus"
+            ng-controller="portfolioController">
+            <!-- <h1 class="title">Featured Projects</h1> -->
+              <div class="project-container cols">
+                <!-- Project Cards -->
+                <div class="project-card" ng-repeat="item in portfolioItems" style="background: {{item.background}}">
+                  <div class="top-box">
+                    <div class="photo-link-container">
+                      <a href="" class="photo-link">
+                        <img class="project-photo" src="http://appbalo.com/wp-content/uploads/2014/08/Square-InstaPic---No-crop.png" alt="dummy image" />
+                      </a>
+                    </div>
+                    <div class="details-links">
+                      <a href="">
+                        <span class="details">1/2/93</span>
+                      </a>
 
-                    <a href=""><span class="details">Project Repo</span></a>
+                      <a href=""><span class="details">Project Repo</span></a>
 
-                    <a href=""><span class="details">Site Link</span></a>
+                      <a href=""><span class="details">Site Link</span></a>
+                    </div>
+                  </div>
+                  <div class="description-box">
+                    <p>
+                      {{item.description}}
+                    </p>
+                  </div>
+                  <div class="interaction-box">
+                    <div class="interaction-tab">
+                      <a href="" class="question-link interaction-link"><span class="fa fa-question-circle fa-2x"></span></a>
+                    </div>
+                    <div class="interaction-tab">
+                      <a href="" class="like-link interaction-link"><span class="fa fa-thumbs-o-up fa-2x"></span></a>
+                    </div>
                   </div>
                 </div>
-                <div class="description-box">
-                  <p>
-                    This is a short description that will tease a longer description.
-                  </p>
-                </div>
-                <div class="interaction-box">
-                  <div class="interaction-tab">
-                    <a href="question-link interaction-link"><span class="fa fa-question-circle fa-3x"></span></a>
-                  </div>
-                  <div class="interaction-tab">
-                    <a href="like-link interaction-link"><span class="fa fa-thumbs-o-up fa-3x"></span></a>
-                  </div>
-                </div>
+
               </div>
             </div>
           </div>
-
-
         </section>
+        <!-- Contact Box -->
         <section class="contact-box content-box" ng-class="{'box-regular': landingPage, 'box-grow': ContactFocus, 'box-shrink':  !ContactFocus && !landingPage}" ng-click="toggleFocus('contact')">
           <div class="background-div contact-background" ng-class="{'grayscale-heavy': ContactFocus, 'grayscale-light': !ContactFocus}">
           </div>
@@ -96,7 +143,9 @@
               <span class="title" ng-class="{'title-vertical': !landingPage}">CONTACT</span>
             </div>
             <div class="content-window ng-hide" ng-hide="!ContactFocus">
-
+              <section class="contact-form">
+                
+              </section>
             </div>
           </div>
         </section>
@@ -105,7 +154,8 @@
     <footer>
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
       <script src="https://angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
-      <script src="ajax.googleapis.com/ajax/libs/angularjs/X.Y.Z/angular-animate.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+
       <script src="js/app.js" charset="utf-8"></script>
       <script src="js/controllers.js" charset="utf-8"></script>
       <script src="js/services.js" charset="utf-8"></script>

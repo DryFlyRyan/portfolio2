@@ -9,11 +9,12 @@
     "watch-sass": "nodemon -e scss -w app/css -x 'npm run build-sass'",
     "watch-app-js": "nodemon -e js -w app/js",
     "watch-server-js": "nodemon -e js -w server/js",
-    "watch": "npm run watch-sass && npm run watch-app-js && npm run watch-server-js && nodemon"
+    "watch": "npm run watch-sass && npm run watch-app-js && npm run watch-server-js && nodemon server/app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "angular-masonry": "^0.16.0",
     "dotenv": "^2.0.0",
     "express": "^4.13.4",
     "http": "0.0.0",
