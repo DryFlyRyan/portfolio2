@@ -32,6 +32,14 @@ $rokkitt: 'Rokkitt', serif;
   justify-content:center;
 }
 
+@mixin flexColumnEnd {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-end;
+  align-content: center;
+  justify-content:center;
+}
+
 @mixin flexRowStretch {
   display: flex;
   flex-flow: row nowrap;
@@ -76,6 +84,14 @@ $rokkitt: 'Rokkitt', serif;
   align-items: flex-start;
   align-content: flex-start;
   justify-content: flex-start;
+}
+
+@mixin flexRowEnd {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-end;
+  align-content: center;
+  justify-content:center;
 }
 
 @mixin clearFlex {
@@ -264,16 +280,19 @@ body:before {
   .bottom-link:nth-child(3) {
     border: none;
   }
+  .bio-info-container {
+    margin: 5%;
+  }
   .bio-container {
     @include flexColumnCenter;
-    width: 90%;
+    width: 100%;
   }
   .link-container {
     margin-bottom: 0.5%;
   }
 }
 
-// .project-card:before, .project-card:after,
+.contact-form:before, .contact-form:after,
 .main-banner:before, .main-banner:after {
   background: black;
   z-index: -1;
@@ -288,7 +307,7 @@ body:before {
   transform: rotate(-1.5deg);
 }
 
-// .project-card:after,
+.contact-form:after,
 .main-banner:after {
   transform: rotate(1.5deg);
   right: 10px;
@@ -414,7 +433,9 @@ body:before {
 }
 
 .title-window {
+  display: block;
   @include flexColumnCenter;
+  height: 100%;
   flex-grow: 1;
 }
 
@@ -429,6 +450,73 @@ body:before {
 }
 
 // Contact Form
+
+.contact-form {
+  @include flexColumnCenter;
+  position: relative;
+  width: 90%;
+  background: #f6511d;
+  border: 2px solid rgb(200,200,200);
+  font-family: $rokkitt;
+  font-size: 16pt;
+  border-radius: 5px;
+  .form-group {
+    @include flexColumnCenter;
+    margin: 2%;
+    width: 90%;
+    .top-forms {
+      width: 90%;
+      input {
+        line-height: 28px;
+      }
+      textarea {
+        min-width: 90%;
+      }
+      label {
+        display: block;
+        width: 90%;
+      }
+      .text-field {
+        width: 90%;
+      }
+    }
+    .bottom-forms-label {
+      width: 90%;
+    }
+    .bottom-forms {
+      width: 90%;
+      @include flexRowEnd;
+      .radio-group {
+        display: inline-block;
+        max-width: 45%;
+        @include flexColumnStart;
+        flex-grow: 1;
+      }
+      .submit-container {
+        @include flexColumnCenter;
+        display: inline-block;
+        text-align: center;
+        max-width: 45%;
+        min-height: 100%;
+        flex-grow: 1;
+        button {
+          font-family: $rokkitt;
+          font-size: 18pt;
+          min-width: 50%;
+          max-width: 80%;
+          height: 50px;
+          background: #00a6ed;
+          border-radius: 15px;
+          border: none;
+          margin-bottom: 5%;
+          @include boxShadowRight;
+        }
+      }
+    }
+  }
+}
+
+
 
 // Social Links
 
