@@ -17,7 +17,7 @@
     "watch-sass": "nodemon -e scss -w app/css -x 'npm run build-sass'",
     "watch-app-js": "nodemon -e js -w app/js",
     "watch-server-js": "nodemon -e js -w server/js",
-    "watch": "npm run watch-sass && npm run watch-app-js && npm run watch-server-js && nodemon server/app.js"
+    "watch": "npm run watch-sass & npm run watch-app-js & npm run watch-server-js & nodemon server/app.js"
   },
   "repository": {
     "type": "git",

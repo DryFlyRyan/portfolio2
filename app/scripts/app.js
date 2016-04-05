@@ -10,6 +10,5 @@ angular.module("portfolio", ['ui.router', 'ngAnimate'])
     url:'/'
   })
 
-
   $locationProvider.html5Mode(true);
 });
