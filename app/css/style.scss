@@ -116,6 +116,12 @@ $rokkitt: 'Rokkitt', serif;
   margin: 0;
 }
 
+/* Angular Fixes */
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
 /* Top Level Element Styling */
 
 html, body {

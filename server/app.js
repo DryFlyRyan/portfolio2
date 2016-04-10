@@ -3,7 +3,7 @@ require('dotenv').load();
 var express = require('express');
 var http = require('http');
 var favicon = require('serve-favicon');
-var port = process.env.PORT || 3001;
+var port = process.env.PORT || 3000;
 
 
 var app = express();
