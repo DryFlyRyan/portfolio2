@@ -1,6 +1,11 @@
 @import url(https://fonts.googleapis.com/css?family=Rokkitt:700);
 /* MIXINS FOR FLEX */
 /* SHADOW MIXINS */
+/* Bootstrap Fixes */
+.box-fix {
+  padding: 0;
+  margin: 0; }
+
 /* Top Level Element Styling */
 html, body {
   margin: 0;

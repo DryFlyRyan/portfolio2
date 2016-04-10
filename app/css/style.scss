@@ -109,6 +109,13 @@ $rokkitt: 'Rokkitt', serif;
   box-shadow: 8px 8px 0px -3px rgba(0,0,0,0.75);
 }
 
+/* Bootstrap Fixes */
+
+.box-fix {
+  padding: 0;
+  margin: 0;
+}
+
 /* Top Level Element Styling */
 
 html, body {

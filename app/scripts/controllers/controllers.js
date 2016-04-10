@@ -8,7 +8,7 @@ function boxController($scope) {
   $scope.ContactFocus = false;
 
   $scope.landingPageToggle = function() {
-    if ($scope.BioFocus === false && $scope.PortfolioFocus === false && $scope.ContactFocus === false){
+    if (!$scope.BioFocus && !$scope.PortfolioFocus && !$scope.ContactFocus){
     $scope.landingPage = true;
     } else {
     $scope.landingPage = false;
@@ -17,27 +17,15 @@ function boxController($scope) {
 
   $scope.toggleFocus = function(element){
     if (element === "biography") {
-      if ($scope.BioFocus === false) {
-        $scope.BioFocus = true;
-      } else if ($scope.BioFocus === true) {
-        $scope.BioFocus = false;
-      }
+      $scope.BioFocus = !$scope.BioFocus;
       $scope.PortfolioFocus = false;
       $scope.ContactFocus = false;
     } else if (element === "portfolio") {
-      if ($scope.PortfolioFocus === false) {
-        $scope.PortfolioFocus = true;
-      } else if ($scope.PortfolioFocus === true) {
-        $scope.PortfolioFocus = false;
-      }
+      $scope.PortfolioFocus = !$scope.PortfolioFocus;
       $scope.BioFocus = false;
       $scope.ContactFocus = false;
     } else if (element === "contact") {
-      if ($scope.ContactFocus === false) {
-        $scope.ContactFocus = true;
-      } else if ($scope.ContactFocus === true) {
-        $scope.ContactFocus = false;
-      }
+      $scope.ContactFocus = !$scope.ContactFocus;
       $scope.BioFocus = false;
       $scope.PortfolioFocus = false;
     }

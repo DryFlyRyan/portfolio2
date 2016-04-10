@@ -28,7 +28,7 @@
     <main>
       <div class="box-container" ng-controller="boxController" ng-init="landingPageToggle()">
         <!-- Bio Box -->
-        <section class="bio-box content-box" ng-class="{'box-regular': landingPage, 'box-grow': BioFocus, 'box-shrink':  !BioFocus && !landingPage}" >
+        <section class="bio-box content-box box-fix" ng-class="{'col-md-4': landingPage, 'col-md-8': BioFocus, 'col-md-2':  !BioFocus && !landingPage}" >
           <div class="background-div biography-background" ng-class="{'grayscale-heavy': BioFocus, 'grayscale-light': !BioFocus}">
           </div>
           <div class="content-container">
@@ -81,7 +81,7 @@
           </div>
         </section>
         <!-- Portfolio Box -->
-        <section class="portfolio-box content-box" ng-class="{'box-regular': landingPage, 'box-grow': PortfolioFocus, 'box-shrink':  !PortfolioFocus && !landingPage}">
+        <section class="portfolio-box content-box box-fix" ng-class="{'col-md-4': landingPage, 'col-md-8': PortfolioFocus, 'col-md-2':  !PortfolioFocus && !landingPage}">
           <div class="background-div portfolio-background" ng-class="{'grayscale-heavy': PortfolioFocus, 'grayscale-light': !PortfolioFocus}">
 
           </div>
@@ -131,7 +131,7 @@
           </div>
         </section>
         <!-- Contact Box -->
-        <section class="contact-box content-box" ng-class="{'box-regular': landingPage, 'box-grow': ContactFocus, 'box-shrink':  !ContactFocus && !landingPage}">
+        <section class="contact-box content-box box-fix" ng-class="{'col-md-4': landingPage, 'col-md-8': ContactFocus, 'col-md-2':  !ContactFocus && !landingPage}">
           <div class="background-div contact-background" ng-class="{'grayscale-heavy': ContactFocus, 'grayscale-light': !ContactFocus}">
           </div>
           <div class="content-container">
