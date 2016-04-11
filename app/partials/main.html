@@ -1,0 +1,60 @@
+<header>
+  <div class="social-link-container">
+    <a href="https://www.linkedin.com/in/valueinvalueadded" class="social-btn linkedin-btn" target="_blank"><i class="fa fa-linkedin-square fa-2x"></i></a>
+    <a href="https://twitter.com/DryFlyRyan" class="social-btn twitter-btn" target="_blank"><i class="fa fa-twitter-square fa-2x"></i></a>
+    <a href="https://github.com/DryFlyRyan" class="social-btn github-btn" target="_blank"><i class="fa fa-github-alt fa-2x"></i></a>
+  </div>
+</header>
+<main class="box-container" ng-controller="mainCtrl" ng-init="landingPageToggle()">
+    <!-- Bio Box -->
+  <section class="bio-box content-box box-fix" ng-class="{'col-md-4': landingPage, 'col-md-8': BioFocus, 'col-md-2':  !BioFocus && !landingPage}">
+    <div class="background-div biography-background" ng-class="{'grayscale-heavy': BioFocus, 'grayscale-light': !BioFocus}">
+    </div>
+    <div class="content-container" >
+      <div class="title-window" ng-click="toggleFocus('biography')">
+        <span class="title" ng-class="{'title-vertical': !landingPage}">BIOGRAPHY</span>
+      </div>
+      <div class="content-window ng-hide bio-window" ng-show="BioFocus" ng-cloak>
+
+        <div ui-view>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- Portfolio Box -->
+  <section class="portfolio-box content-box box-fix" ng-class="{'col-md-4': landingPage, 'col-md-8': PortfolioFocus, 'col-md-2':  !PortfolioFocus && !landingPage}" ng-cloak>
+    <div class="background-div portfolio-background" ng-class="{'grayscale-heavy': PortfolioFocus, 'grayscale-light': !PortfolioFocus}">
+
+    </div>
+    <div class="content-container">
+      <div class="title-window"  ng-click="toggleFocus('portfolio')">
+        <span class="title" ng-class="{'title-vertical': !landingPage}">PORTFOLIO</span>
+      </div>
+      <div class="content-window portfolio-window ng-hide" ng-show="PortfolioFocus"
+      ng-controller="projectCtrl" ng-cloak>
+      <!-- <h1 class="title">Featured Projects</h1> -->
+        <div ui-view>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Contact Box -->
+  <section class="contact-box content-box box-fix" ng-class="{'col-md-4': landingPage, 'col-md-8': ContactFocus, 'col-md-2':  !ContactFocus && !landingPage}" ng-cloak>
+    <div class="background-div contact-background" ng-class="{'grayscale-heavy': ContactFocus, 'grayscale-light': !ContactFocus}">
+    </div>
+    <div class="content-container">
+      <div class="title-window"  ng-click="toggleFocus('contact')">
+        <span class="title" ng-class="{'title-vertical': !landingPage}">CONTACT</span>
+      </div>
+      <div class="content-window ng-hide" ng-show="ContactFocus" ng-cloak>
+        <div ui-view>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>

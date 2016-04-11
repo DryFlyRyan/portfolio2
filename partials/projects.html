@@ -1,0 +1,37 @@
+<div class="content-window portfolio-window ng-hide" ng-show="PortfolioFocus"
+ng-cloak>
+  <div class="project-container cols">
+    <!-- Project Cards -->
+    <div class="project-card" ng-repeat="item in portfolioItems" style="background: {{item.background}}">
+      <div class="top-box">
+        <div class="photo-link-container">
+          <a href="" class="photo-link">
+            <img class="project-photo" src="http://appbalo.com/wp-content/uploads/2014/08/Square-InstaPic---No-crop.png" alt="dummy image" />
+          </a>
+        </div>
+        <div class="details-links">
+          <a href="">
+            <span class="details">1/2/93</span>
+          </a>
+
+          <a href=""><span class="details">Project Repo</span></a>
+
+          <a href=""><span class="details">Site Link</span></a>
+        </div>
+      </div>
+      <div class="description-box">
+        <p>
+          {{item.description}}
+        </p>
+      </div>
+      <div class="interaction-box">
+        <div class="interaction-tab">
+          <a href="" class="question-link interaction-link"><span class="fa fa-question-circle fa-2x"></span></a>
+        </div>
+        <div class="interaction-tab">
+          <a href="" class="like-link interaction-link"><span class="fa fa-thumbs-o-up fa-2x"></span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

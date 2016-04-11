@@ -1,0 +1,645 @@
+// FONTS
+
+@import url(https://fonts.googleapis.com/css?family=Rokkitt:700);
+
+$rokkitt: 'Rokkitt', serif;
+
+// VARIABLES
+
+/* MIXINS FOR FLEX */
+
+@mixin flexColumnCenter {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+@mixin flexColumnStretch {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  align-content: stretch;
+  justify-content:center;
+}
+
+@mixin flexColumnStart {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;;
+  align-content: flex-start;;
+  justify-content:center;
+}
+
+@mixin flexColumnEnd {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-end;
+  align-content: center;
+  justify-content:center;
+}
+
+@mixin flexRowStretch {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+  align-content: stretch;
+  justify-content:center;
+}
+
+@mixin flexRowSpread {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  align-content: space-between;
+  justify-content: space-between;
+}
+
+@mixin flexRow {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  align-content: center;
+}
+
+@mixin flexRowRight {
+  @include flexRow;
+  justify-content:flex-end;
+}
+
+@mixin flexRowLeft {
+  @include flexRow;
+  justify-content: flex-start;
+}
+
+@mixin flexRowCenter {
+  @include flexRow;
+  justify-content: center;
+}
+
+@mixin flexRowLayer {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: flex-start;
+}
+
+@mixin flexRowEnd {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-end;
+  align-content: center;
+  justify-content:center;
+}
+
+@mixin clearFlex {
+  flex-flow: none;
+  align-items: none;
+  align-content: none;
+  justify-content: none;
+}
+
+/* SHADOW MIXINS */
+
+@mixin boxShadowRight {
+  -webkit-box-shadow: 8px 8px 0px -3px rgba(0,0,0,0.75);
+  -moz-box-shadow: 8px 8px 0px -3px rgba(0,0,0,0.75);
+  box-shadow: 8px 8px 0px -3px rgba(0,0,0,0.75);
+}
+
+/* Bootstrap Fixes */
+
+.box-fix {
+  padding: 0;
+  margin: 0;
+}
+
+/* Angular Fixes */
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+/* Top Level Element Styling */
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  // background: black;
+  // overflow: hidden;
+}
+
+body > * {
+  box-sizing: border-box;
+}
+
+body:before {
+  content: "";
+  position: fixed;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  z-index: 100;
+  -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+  -moz-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+  box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+}
+
+// Container Styling
+
+.box-container {
+  @include flexRowStretch;
+}
+
+// BOX STYLING
+
+//Content Box (Top Level Boxes)
+
+.content-box {
+  height: 100vh;
+  border-right: 5px solid white;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+
+}
+
+.content-box:nth-child(3) {
+  border: none;
+}
+
+.box-regular {
+  flex-grow: 1;
+}
+
+.box-grow {
+  flex-grow: 5;
+  // max-width: 70%;
+}
+
+.box-shrink {
+  // flex-grow: 1;
+  min-width: 15%;
+}
+
+// Bio Box
+
+.bio-window {
+  // @include flexColumnStart;
+  height: 100%;
+}
+
+.main-banner {
+  border: 2px solid rgba(90, 90, 90, 1);
+  margin: 2% 0;
+  border-radius: 5px;
+  width: 90%;
+  position: relative;
+  background: white;
+  .top-container {
+    @include flexRowStretch;
+    margin: 7.5px 0;
+    .photo-container {
+      @include flexColumnCenter;
+      max-width: 30%;
+      min-height: 100%;
+      // border: 1px solid red;
+      .profile-img {
+        border-radius: 50%;
+        max-width: 50%;
+        max-height: 50%;
+        min-width: 50%;
+        min-height: 50%;
+        border: 3px solid rgba(30,30,30,1)
+      }
+    }
+    .info-container {
+      // border: 1px solid blue;
+      width: 65%;
+      display: inline-block;
+      .top-bar-container {
+        @include flexRowCenter;
+        .name-container,
+        .social-link-container {
+          min-width: 30%;
+          max-width: 45%;
+        }
+        .name-container {
+          @include flexRowCenter;
+          display: inline-block;
+          width: 100%;
+        }
+        .social-link-container {
+          @include flexRowRight;
+          margin-top: 0.5%;
+          //Social Buttons
+          .social-btn {
+            text-decoration: none;
+            color: rgba(90,90,90,1);
+            margin: 2px 3px;
+          }
+          .social-btn:hover {
+            color: rgba(90,90,90,1)
+          }
+          .social-btn:visited {
+            color: rgba(90,90,90,1)
+          }
+          // Hover Colors
+          .linkedin-btn:hover {
+            color: rgba(24,132,187,1)
+          }
+        }
+      }
+    }
+  }
+  .name-text {
+    font-weight: 700;
+    font-size: 24pt;
+    margin: auto;
+  }
+
+  .header-container {
+    @include flexRowLeft;
+    width: 95%;
+  }
+
+  .header-text {
+    margin: 1% 3%;
+  }
+
+  .jobs-text {
+    font-family: $rokkitt;
+    font-size: 16pt;
+    text-align: center;
+  }
+
+  // Button Styling
+
+  // Link Styling
+  .bottom-link > h3 {
+    text-align: center;
+  }
+  .bottom-link {
+    border-right: 1px solid rgba(90, 90, 90, 1);
+    margin-top: 2%;
+  }
+  .bottom-link:nth-child(3) {
+    border: none;
+  }
+  .bio-info-container {
+    margin: 5%;
+  }
+  .bio-container {
+    @include flexColumnCenter;
+    width: 100%;
+  }
+  .link-container {
+    margin-bottom: 0.5%;
+  }
+}
+
+.contact-form:before, .contact-form:after,
+.main-banner:before, .main-banner:after {
+  background: black;
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 12px;
+  left: 10px;
+  width: 50%;
+  top: 80%;
+  background: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
+  transform: rotate(-1.5deg);
+}
+
+.contact-form:after,
+.main-banner:after {
+  transform: rotate(1.5deg);
+  right: 10px;
+  left: auto;
+}
+
+// Portfolio Boxes
+
+.project-container {
+  overflow: scroll;
+}
+
+.project-card {
+  @include boxShadowRight;
+  margin: 15px;
+  background: white;
+  // width: 90%;
+  // @include flexColumnCenter;
+  display: inline-block;
+  padding: 5px;
+}
+
+.top-box,
+.description-box,
+.interaction-box {
+  max-width: 100%
+}
+
+.top-box {
+  @include flexRowSpread;
+}
+
+.photo-link-container {
+  @include flexRowCenter;
+  flex-grow: 1;
+  max-width: 45%;
+  // display: inline-block;
+}
+
+
+.details-links {
+  @include flexColumnStart;
+  max-width: 45%;
+  flex-grow: 2;
+  > a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.details {
+  font-family: $rokkitt;
+  font-size: 18pt;
+  font-weight: 700;
+  display: inline-block;
+  min-width: 95%;
+    text-shadow:1px 1px 0 #fff,
+    -1px -1px 0 #fff,
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff,
+    0px 1px 0 #fff,
+    1px 0px 0 #fff,
+    0px -1px 0 #fff,
+    -1px 0px 0 #fff,
+    4px 4px 3px #000;
+
+}
+
+.details:visited {
+  color: inherit;
+}
+
+.photo-link {
+  @include flexRowCenter;
+  // max-width: 75%;
+}
+
+.project-photo {
+  max-width: 50%;
+}
+
+.details-links {
+  @include flexColumnStart;
+  display: inline-block;
+}
+
+.description-box {
+  min-width: 90%;
+  background: rgba(240,240,240, 0.2);
+}
+
+.interaction-box {
+  @include flexRowSpread;
+  min-width: 100%;
+}
+
+.interaction-link {
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  min-width: 47.5%
+}
+
+.interaction-link:hover,
+.interaction-link:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+.interaction-tab {
+  @include flexRowCenter;
+  min-width: 47.5%
+}
+
+.interaction-tab:first-child {
+  border-right: 2px solid rgb(90,90,90);
+}
+
+.content-container {
+  @include flexRowSpread;
+  height: 100vh;
+  width: 100%;
+}
+
+.title-window {
+  display: block;
+  @include flexColumnCenter;
+  height: 100%;
+  flex-grow: 1;
+}
+
+.content-window {
+  flex-grow: 5;
+}
+
+.portfolio-window {
+  @include flexColumnCenter;
+  // position: fixed;
+  max-height: 100%;
+}
+
+// Contact Form
+
+.contact-form {
+  @include flexColumnCenter;
+  position: relative;
+  width: 90%;
+  background: #f6511d;
+  border: 2px solid rgb(200,200,200);
+  font-family: $rokkitt;
+  font-size: 16pt;
+  border-radius: 5px;
+  .form-group {
+    @include flexColumnCenter;
+    margin: 2%;
+    width: 90%;
+    .top-forms {
+      width: 90%;
+      input {
+        line-height: 28px;
+      }
+      textarea {
+        min-width: 90%;
+      }
+      label {
+        display: block;
+        width: 90%;
+      }
+      .text-field {
+        width: 90%;
+      }
+    }
+    .bottom-forms-label {
+      width: 90%;
+    }
+    .bottom-forms {
+      width: 90%;
+      @include flexRowEnd;
+      .radio-group {
+        display: inline-block;
+        max-width: 45%;
+        @include flexColumnStart;
+        flex-grow: 1;
+      }
+      .submit-container {
+        @include flexColumnCenter;
+        display: inline-block;
+        text-align: center;
+        max-width: 45%;
+        min-height: 100%;
+        flex-grow: 1;
+        button {
+          font-family: $rokkitt;
+          font-size: 18pt;
+          min-width: 50%;
+          max-width: 80%;
+          height: 50px;
+          background: #00a6ed;
+          border-radius: 15px;
+          border: none;
+          margin-bottom: 5%;
+          @include boxShadowRight;
+        }
+      }
+    }
+  }
+}
+
+
+
+// Social Links
+
+.social-link-container {
+  @include flexRowRight;
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  margin-top: 0.5%;
+  //Social Buttons
+  .social-btn {
+    text-decoration: none;
+    color: rgba(90,90,90,1);
+    margin: 2px 3px;
+  }
+  .social-btn:hover {
+    color: rgba(90,90,90,1);
+  }
+  .social-btn:visited {
+    color: rgba(90,90,90,1);
+  }
+  // Hover Colors
+  .linkedin-btn:hover {
+    color: rgba(3, 102, 153, 1);
+  }
+  .twitter-btn:hover {
+    color: rgba(85, 172, 238,1);
+  }
+  .github-btn:hover {
+    color: rgba(255, 165, 0, 1);
+  }
+}
+
+// Element Styling
+
+.title {
+  display: inline-block;
+  font-family: $rokkitt;
+  font-weight: 700;
+  font-size: 24pt;
+  color: rgba(255, 165, 0, 1);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.title-vertical {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+// Backgrounds
+
+.background-div {
+  position: fixed;
+  // top: 0;
+  // left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: -1;
+}
+
+.biography-background {
+  background: url('../media/mountains.jpg') no-repeat center center fixed;
+}
+
+.portfolio-background {
+  background: url('../media/workshop.jpg') no-repeat center center fixed;
+}
+
+.contact-background {
+  background: url('../media/envelopes.jpg') no-repeat center center fixed;
+}
+
+// Effects
+
+.grayscale-heavy {
+	filter: grayscale(100%);
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	filter: grayscale(100%);
+}
+
+.grayscale-light {
+	filter: grayscale(50%);
+	-webkit-filter: grayscale(50%);
+	-moz-filter: grayscale(50%);
+	-o-filter: grayscale(50%);
+	-ms-filter: grayscale(50%);
+	filter: grayscale(50%);
+}
+
+// Masonry Grid
+
+.cols {
+  top: 0;
+    -moz-column-count:2;
+    -moz-column-gap: 1%;
+    -moz-column-width: 30%;
+    -webkit-column-count:2;
+    -webkit-column-gap: 1%;
+    -webkit-column-width: 30%;
+    column-count: 2;
+    column-gap: 1%;
+    column-width: 30%;
+}

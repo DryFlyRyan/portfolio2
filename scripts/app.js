@@ -1,7 +1,7 @@
 angular.module("portfolio", [
   'ui.router',
   'oc.lazyLoad',
-  'ngAnimate',
+  'ngAnimate'
 ]).config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $locationProvider) {
 
   $ocLazyLoadProvider.config({
@@ -27,6 +27,15 @@ angular.module("portfolio", [
           })
         }
       }
+    })
+    .state('portfolio.biography',{
+      templateUrl:'partials/biography.html'
+    })
+    .state('portfolio.projects',{
+      templateUrl:'partials/projects.html'
+    })
+    .state('portfolio.contact',{
+      templateUrl:'partials/contact.html'
     })
 
 

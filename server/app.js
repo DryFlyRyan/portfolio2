@@ -11,7 +11,7 @@ var server = http.Server(app);
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(express.static('./app'));
+app.use(express.static('./'));
 
 server.listen(port, function(){
   console.log("Server listening on ", port);
