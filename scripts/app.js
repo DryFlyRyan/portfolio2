@@ -2,7 +2,8 @@ angular.module("portfolio", [
   'ui.router',
   'oc.lazyLoad',
   'ngAnimate',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'angularModalService'
 ]).config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $locationProvider) {
 
   $ocLazyLoadProvider.config({
@@ -18,14 +19,15 @@ angular.module("portfolio", [
       templateUrl: 'partials/main.html',
       controller: 'mainCtrl',
       resolve: {
-        loadMyFiles:function($ocLazyLoad) {
+        loadMyDirectives:function($ocLazyLoad) {
           return $ocLazyLoad.load(
             {
               name: 'portfolio',
               files: [
-                'scripts/controllers/main.js',
+                'scripts/controllers/main.js'
               ]
-            },
+            })
+            $ocLazyLoad.load(
             {
               name: 'tooltip',
               files: [
@@ -45,9 +47,11 @@ angular.module("portfolio", [
         loadMyFiles:function($ocLazyLoad) {
           return $ocLazyLoad.load(
             {
-              name: 'projects',
+              name: 'portfolio',
               files: [
-                'scripts/controllers/projects.js',
+                'scripts/controllers/modal.js',
+                'scripts/controllers/projects.js'
+
               ]
             }
           )

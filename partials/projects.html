@@ -1,27 +1,27 @@
 <div class="content-window portfolio-window ng-hide" ng-show="focus === 'PortfolioFocus'"
 ng-cloak ng-repeat="project in projects">
-  <a ui-sref="">
-    <div class="main-banner portfolio-container col-md-12">
-      <div class="header-container col-md-12">
-        <span class="title col-md-8">{{project.title}}</span>
-        <span class="project-status col-md-4">{{project.status}}</span>
-        <h4 class="project-headline col-md-12">{{project.headline}}</h4>
 
-      </div>
-      <div class="bio-container col-md-12">
-        <p>
-          {{project.short_description}}
-        </p>
-      </div>
-      <div class="portfolio-tech-container col-md-12">
-        <a href="" class="portfolio-img-container" ng-repeat="tech in project.technologies">
-          <img class="portfolio-tech-icon" src="{{tech.imgURL}}" alt="{{tech.name}}" title="{{tech.name}}"/>
-        </a>
-      </div>
-      <div class="col-md-12">
-        <a class="portfolio-link" href="{{project.repository}}" target="_blank">GitHub Repository</a>
-        <a class="portfolio-link" href="{{project.site}}" target="_blank">Live Site</a>
-      </div>
+  <div class="main-banner portfolio-container col-md-12" ng-click="showModal(project)">
+    <div class="header-container col-md-12">
+      <span class="title col-md-8">{{project.title}}</span>
+      <span class="project-status col-md-4">{{project.status}}</span>
+      <h4 class="project-headline col-md-12">{{project.headline}}</h4>
+
     </div>
-  </a>
+    <div class="bio-container col-md-12">
+      <p>
+        {{project.short_description}}
+      </p>
+    </div>
+    <div class="portfolio-tech-container col-md-12">
+      <a href="" class="portfolio-img-container" ng-repeat="tech in project.technologies">
+        <img class="portfolio-tech-icon" src="{{tech.imgURL}}" alt="{{tech.name}}" title="{{tech.name}}"/>
+      </a>
+    </div>
+    <div class="col-md-12">
+      <a class="portfolio-link" href="{{project.repository}}" target="_blank">GitHub Repository</a>
+      <a class="portfolio-link" href="{{project.site}}" target="_blank">Live Site</a>
+    </div>
+  </div>
+
 </div>

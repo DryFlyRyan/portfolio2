@@ -6,6 +6,11 @@
   padding: 0;
   margin: 0; }
 
+.modal-header,
+.modal-footer,
+.modal-body {
+  border: none; }
+
 /* Angular Fixes */
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important; }

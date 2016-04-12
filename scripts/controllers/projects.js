@@ -1,7 +1,32 @@
 angular.module("portfolio")
-.controller("projectCtrl", projectCtrl)
+.controller("projectCtrl", ['$scope', 'ModalService', function($scope, ModalService) {
 
-function projectCtrl($scope) {
+  $scope.showModal = function(project) {
+    ModalService.showModal({
+      templateUrl: "partials/modals/projectModal.html",
+      controller: "modalCtrl",
+        inputs: {
+          project: project
+        }
+      // inputs: {
+      //   title: project.title,
+      //   headline: project.headline,
+      //   status: project.status,
+      //   description: project.long_description,
+      //   technologies: project.technologies,
+      //   icon: project.icon,
+      //   video: project.video,
+      //   repository: project.repository,
+      //   site: project.site
+      // }
+    }).then(function(modal) {
+      modal.element.modal();
+      modal.close.then(function(result) {
+        $scope.complexResult  = "Name: " + result.name + ", age: " + result.age;
+      });
+    });
+
+  };
 
   $scope.projects = [
     {
@@ -9,7 +34,20 @@ function projectCtrl($scope) {
       headline: "IoT Beer Tap Management",
       status: "In Development",
       short_description: "This project was completed as the capstone for the Galvanize Full Stack program and is designed to help operations staff manage the various keg taps located throughout the different Galvanize campuses.",
-      long_description: "This project was completed as the capstone for my Galvanize gSchool program. It’s to-date the only project that has been 100% sponsored by Galvanize. Atreides is designed to help operations staff manage the various keg taps located throughout the different Galvanize campuses.\n The backbone of Atreides is built on a Raspberry Pi 3 B along with a flow meter, solenoid valve, and thermometer wrapped in an easily deployable device. This system communicates with a Node.js server and PostgreSQL database, which talks to an Angular 1.4 frontend dashboard.\n While Atreides proper uses OAuth2 and additional API tokens to get and authenticate Galvanize staff, an additional demo repo is available and open-sourced for users and organizations who would like to use the application for their own purposes.",
+      long_description: [
+        {
+          paragraph: "This project was completed as the capstone for my Galvanize gSchool program. It’s to-date the only project that has been 100% sponsored by Galvanize. Atreides is designed to help operations staff manage the various keg taps located throughout the different Galvanize campuses.",
+          order: 0
+        },
+        {
+          paragraph: "The backbone of Atreides is built on a Raspberry Pi 3 B along with a flow meter, solenoid valve, and thermometer wrapped in an easily deployable device. This system communicates with a Node.js server and PostgreSQL database, which talks to an Angular 1.4 frontend dashboard.",
+          order: 1
+        },
+        {
+          paragraph: "While Atreides proper uses OAuth2 and additional API tokens to get and authenticate Galvanize staff, an additional demo repo is available and open-sourced for users and organizations who would like to use the application for their own purposes.",
+          order: 2
+        }
+      ],
       technologies: [
         {
           name: "Node.js",
@@ -46,7 +84,24 @@ function projectCtrl($scope) {
       headline: "IoT Beer Tap Management",
       status: "Completed",
       short_description: "Chyller was a group project whose focus was to connect a remotely located Raspberry Pi acting as a microcontroller for a homebrewing fermentation chamber with a frontend ui.",
-      long_description: "Chyller was a group project whose focus was to connect a remotely located Raspberry Pi acting as a microcontroller for a homebrewing fermentation chamber with a frontend ui.\\n The project allows for a user to set up a schedule using both preset brewing profiles as well as custom profiles in order to build a fermentation plan for homebrewed beer, cider, and wine. This schedule is stored on the deployed node server and passed to the Raspberry Pi when initiated. The Raspberry Pi can then run the schedule autonomously, but reports back into the server every 5 seconds with up to date temperature info and will attempt to reconnect to the server should it lose connection after a set number of attempts.\n The server then reports the logged temperature data back to the front end and will, with some additional work, allow for the modeling of that data.\n This project was the result of roughly 5 days work between six people: Noah Roston, Michael Yeager, Lou Fontana, Eli Parkhurst, Dave Shibley, and myself.",
+      long_description: [
+        {
+          paragraph: "Chyller was a group project whose focus was to connect a remotely located Raspberry Pi acting as a microcontroller for a homebrewing fermentation chamber with a frontend ui.",
+          order: 0
+        },
+        {
+          paragraph: "The project allows for a user to set up a schedule using both preset brewing profiles as well as custom profiles in order to build a fermentation plan for homebrewed beer, cider, and wine. This schedule is stored on the deployed node server and passed to the Raspberry Pi when initiated. The Raspberry Pi can then run the schedule autonomously, but reports back into the server every 5 seconds with up to date temperature info and will attempt to reconnect to the server should it lose connection after a set number of attempts.",
+          order: 1
+        },
+        {
+          paragraph: "The server then reports the logged temperature data back to the front end and will, with some additional work, allow for the modeling of that data.",
+          order: 2
+        },
+        {
+          paragraph: "This project was the result of roughly 5 days work between six people: Noah Roston, Michael Yeager, Lou Fontana, Eli Parkhurst, Dave Shibley, and myself.",
+          order: 3
+        }
+      ],
       technologies: [
         {
           name: "Node.js",
@@ -167,4 +222,4 @@ function projectCtrl($scope) {
     }
   ]
 
-}
+}]);
