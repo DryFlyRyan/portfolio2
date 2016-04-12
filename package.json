@@ -17,7 +17,8 @@
     "watch-sass": "nodemon -e scss -w css/ -x 'npm run build-sass'",
     "watch-app-js": "nodemon -e js -w scripts/**.*",
     "watch-server-js": "nodemon -e js -w server/js",
-    "watch": "npm run watch-sass | npm run watch-app-js | npm run watch-server-js"
+    "watch": "npm run watch-sass | npm run watch-app-js | npm run watch-server-js",
+    "postinstall": "bower install"
   },
   "repository": {
     "type": "git",
