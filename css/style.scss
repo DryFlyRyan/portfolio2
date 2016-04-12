@@ -50,7 +50,7 @@ $rokkitt: 'Rokkitt', serif;
 
 @mixin flexRowSpread {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row;
   align-items: center;
   align-content: space-between;
   justify-content: space-between;
@@ -58,7 +58,7 @@ $rokkitt: 'Rokkitt', serif;
 
 @mixin flexRow {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row;
   align-items: center;
   align-content: center;
 }
@@ -71,6 +71,12 @@ $rokkitt: 'Rokkitt', serif;
 @mixin flexRowLeft {
   @include flexRow;
   justify-content: flex-start;
+}
+
+@mixin flexRowCenterWrap {
+  @include flexRow;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 @mixin flexRowCenter {
@@ -226,35 +232,11 @@ body:before {
       display: inline-block;
       .top-bar-container {
         @include flexRowCenter;
-        .name-container,
-        .social-link-container {
+        .name-container {
           min-width: 30%;
           max-width: 45%;
-        }
-        .name-container {
-          @include flexRowCenter;
           display: inline-block;
           width: 100%;
-        }
-        .social-link-container {
-          @include flexRowRight;
-          margin-top: 0.5%;
-          //Social Buttons
-          .social-btn {
-            text-decoration: none;
-            color: rgba(90,90,90,1);
-            margin: 2px 3px;
-          }
-          .social-btn:hover {
-            color: rgba(90,90,90,1)
-          }
-          .social-btn:visited {
-            color: rgba(90,90,90,1)
-          }
-          // Hover Colors
-          .linkedin-btn:hover {
-            color: rgba(24,132,187,1)
-          }
         }
       }
     }
@@ -266,8 +248,8 @@ body:before {
   }
 
   .header-container {
-    @include flexRowLeft;
-    width: 95%;
+    margin: 0;
+    padding: 0;
   }
 
   .header-text {
@@ -331,6 +313,10 @@ body:before {
 
 .project-container {
   overflow: scroll;
+}
+
+.portfolio-container {
+  padding: 2.5%;
 }
 
 .project-card {
@@ -453,13 +439,57 @@ body:before {
 }
 
 .content-window {
-  flex-grow: 5;
+  overflow: scroll;
 }
 
 .portfolio-window {
   @include flexColumnCenter;
   // position: fixed;
   max-height: 100%;
+  overflow: scroll;
+}
+
+.project-headline {
+  font-style: italic;
+}
+
+.project-status {
+  color: rgb(90,90,90);
+  font-size: 18px;
+  float: right;
+  vertical-align: middle;
+}
+
+.portfolio-tech-container {
+  @include flexRowCenterWrap;
+}
+
+.portfolio-img-container {
+  display: inline-block;
+  margin: 0 5%;
+}
+
+.portfolio-tech-icon {
+  display: inline-block;
+  height: 50px;
+  margin: 5% 15%;
+}
+
+.portfolio-link {
+  display: block;
+  font-family: $rokkitt;
+  font-size: 16pt;
+  color: rgba(255, 165, 0, 1);
+  text-decoration: none;
+}
+
+.portfolio-link:hover {}
+.portfolio-link:visited {
+  color: rgba(255, 165, 0, 1);
+}
+
+.portfolio-link:visited {
+  text-decoration: none;
 }
 
 // Contact Form
@@ -539,6 +569,7 @@ body:before {
   top: 25px;
   left: 25px;
   margin-top: 0.5%;
+  z-index: 99;
   //Social Buttons
   .social-btn {
     text-decoration: none;
@@ -589,7 +620,7 @@ body:before {
 // Backgrounds
 
 .background-div {
-  position: fixed;
+  position: absolute;
   // top: 0;
   // left: 0;
   height: 100vh;
@@ -612,6 +643,8 @@ body:before {
 // Effects
 
 .grayscale-heavy {
+  -webkit-transition: 0.2s linear all;
+  transition: 0.2s linear all;
 	filter: grayscale(100%);
 	-webkit-filter: grayscale(100%);
 	-moz-filter: grayscale(100%);
@@ -621,12 +654,14 @@ body:before {
 }
 
 .grayscale-light {
-	filter: grayscale(50%);
-	-webkit-filter: grayscale(50%);
-	-moz-filter: grayscale(50%);
-	-o-filter: grayscale(50%);
-	-ms-filter: grayscale(50%);
-	filter: grayscale(50%);
+  -webkit-transition: 0.2s linear all;
+  transition: 0.2s linear all;
+	filter: grayscale(30%);
+	-webkit-filter: grayscale(30%);
+	-moz-filter: grayscale(30%);
+	-o-filter: grayscale(30%);
+	-ms-filter: grayscale(30%);
+	filter: grayscale(30%);
 }
 
 // Masonry Grid

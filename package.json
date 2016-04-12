@@ -13,11 +13,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/app.js",
-    "build-sass": "node-sass app/css/style.scss app/css/style.css",
-    "watch-sass": "nodemon -e scss -w app/css -x 'npm run build-sass' & nodemon",
-    "watch-app-js": "nodemon -e js -w app/scripts/**.*",
+    "build-sass": "node-sass css/style.scss css/style.css",
+    "watch-sass": "nodemon -e scss -w css/ -x 'npm run build-sass'",
+    "watch-app-js": "nodemon -e js -w scripts/**.*",
     "watch-server-js": "nodemon -e js -w server/js",
-    "watch": "npm run watch-sass & npm run watch-app-js & npm run watch-server-js"
+    "watch": "npm run watch-sass | npm run watch-app-js | npm run watch-server-js"
   },
   "repository": {
     "type": "git",

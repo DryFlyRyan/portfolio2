@@ -1,20 +1,15 @@
-<header>
-  <div class="social-link-container">
-    <a href="https://www.linkedin.com/in/valueinvalueadded" class="social-btn linkedin-btn" target="_blank"><i class="fa fa-linkedin-square fa-2x"></i></a>
-    <a href="https://twitter.com/DryFlyRyan" class="social-btn twitter-btn" target="_blank"><i class="fa fa-twitter-square fa-2x"></i></a>
-    <a href="https://github.com/DryFlyRyan" class="social-btn github-btn" target="_blank"><i class="fa fa-github-alt fa-2x"></i></a>
-  </div>
-</header>
+
 <main class="box-container"  ng-init="landingPageToggle()">
     <!-- Bio Box -->
-  <section class="bio-box content-box box-fix" ng-class="{'col-md-4': landingPage, 'col-md-8': BioFocus, 'col-md-2':  !BioFocus && !landingPage}">
-    <div class="background-div biography-background" ng-class="{'grayscale-heavy': BioFocus, 'grayscale-light': !BioFocus}">
+  <section class="bio-box content-box box-fix" ng-class="{'col-md-4': !focus, 'col-md-8': focus === 'BioFocus', 'col-md-2': focus != 'BioFocus' && focus}">
+    <div class="background-div biography-background" ng-class="{'grayscale-heavy': focus != 'BioFocus' && hover != 'BioHover', 'grayscale-light': focus === 'BioFocus' || hover === 'BioHover'}">
     </div>
     <div class="content-container" >
-      <div class="title-window" ng-click="toggleFocus('biography')" ui-sref="portfolio.biography">
-        <span class="title" ng-class="{'title-vertical': !landingPage}">BIOGRAPHY</span>
+      <div class="title-window" ng-click="toggleFocus('BioFocus')"
+      ng-mouseenter="toggleHover('BioHover')" ui-sref="portfolio.biography">
+        <span class="title" ng-class="{'title-vertical': focus}">BIOGRAPHY</span>
       </div>
-      <div class="content-window ng-hide bio-window" ng-show="BioFocus" ng-cloak>
+      <div class="content-window ng-hide bio-window" ng-show="focus === 'BioFocus'" ng-cloak>
 
         <div ui-view>
 
@@ -24,15 +19,16 @@
     </div>
   </section>
   <!-- Portfolio Box -->
-  <section class="portfolio-box content-box box-fix" ng-class="{'col-md-4': landingPage, 'col-md-8': PortfolioFocus, 'col-md-2':  !PortfolioFocus && !landingPage}" ng-cloak>
-    <div class="background-div portfolio-background" ng-class="{'grayscale-heavy': PortfolioFocus, 'grayscale-light': !PortfolioFocus}">
+  <section class="portfolio-box content-box box-fix" ng-class="{'col-md-4': !focus, 'col-md-8': focus === 'PortfolioFocus', 'col-md-2': focus != 'PortfolioFocus' && focus}" ng-cloak>
+    <div class="background-div portfolio-background"  ng-class="{'grayscale-heavy': focus != 'PortfolioFocus' && hover != 'PortfolioHover', 'grayscale-light': focus === 'PortfolioFocus' || hover === 'PortfolioHover'}">
 
     </div>
     <div class="content-container">
-      <div class="title-window"  ng-click="toggleFocus('portfolio')" ui-sref="portfolio.projects">
-        <span class="title" ng-class="{'title-vertical': !landingPage}">PORTFOLIO</span>
+      <div class="title-window"  ng-click="toggleFocus('PortfolioFocus')"
+      ng-mouseenter="toggleHover('PortfolioHover')" ui-sref="portfolio.projects">
+        <span class="title" ng-class="{'title-vertical': focus}">PORTFOLIO</span>
       </div>
-      <div class="content-window portfolio-window ng-hide" ng-show="PortfolioFocus"
+      <div class="content-window portfolio-window ng-hide" ng-show="focus === 'PortfolioFocus'"
       ng-cloak>
       <!-- <h1 class="title">Featured Projects</h1> -->
         <div ui-view>
@@ -42,14 +38,15 @@
     </div>
   </section>
   <!-- Contact Box -->
-  <section class="contact-box content-box box-fix" ng-class="{'col-md-4': landingPage, 'col-md-8': ContactFocus, 'col-md-2':  !ContactFocus && !landingPage}" ng-cloak>
-    <div class="background-div contact-background" ng-class="{'grayscale-heavy': ContactFocus, 'grayscale-light': !ContactFocus}">
+  <section class="contact-box content-box box-fix" ng-class="{'col-md-4': !focus, 'col-md-8': focus === 'ContactFocus', 'col-md-2': focus != 'ContactFocus' && focus}" ng-cloak>
+    <div class="background-div contact-background"  ng-class="{'grayscale-heavy': focus != 'ContactFocus' && hover != 'ContactHover', 'grayscale-light': focus === 'ContactFocus' || hover === 'ContactHover'}">
     </div>
     <div class="content-container">
-      <div class="title-window"  ng-click="toggleFocus('contact')" ui-sref="portfolio.contact">
-        <span class="title" ng-class="{'title-vertical': !landingPage}">CONTACT</span>
+      <div class="title-window"  ng-click="toggleFocus('ContactFocus')"
+      ng-mouseenter="toggleHover('ContactHover')" ui-sref="portfolio.contact">
+        <span class="title" ng-class="{'title-vertical': focus}">CONTACT</span>
       </div>
-      <div class="content-window ng-hide" ng-show="ContactFocus" ng-cloak>
+      <div class="content-window ng-hide" ng-show="focus === 'ContactFocus'" ng-cloak>
         <div ui-view>
 
         </div>

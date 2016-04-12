@@ -1,4 +1,4 @@
-<div class="content-window ng-hide" ng-show="BioFocus" ng-cloak>
+<div class="content-window ng-hide" ng-show="focus === 'BioFocus'" ng-cloak>
   <div class="main-banner">
     <div class="top-container">
       <div class="photo-container">
@@ -26,17 +26,35 @@
       </div>
       <div class="bio-container">
         <p>
-          This is a longer paragraph that will serve to test my bio window and ensure that spacing is correct
+          After spending a little over a decade in Inside and Outside Sales, I made the move to open my own business, <a href="http://luckydogdigital.com" target="_blank">Lucky Dog Digital, LLC</a> working to help small- and medium-sized businesses manage their inbound digital and content marketing.
         </p>
         <p>
-          This is a longer paragraph that will serve to test my bio window and ensure that spacing is correct
+          Through these clients, I got my first taste of frontend web development. It started out as simple changes here and there and placing tracking pixels, however I soon realized that I had a deep passion for the work.
         </p>
         <p>
-          This is a longer paragraph that will serve to test my bio window and ensure that spacing is correct
+          This passion led me to attend <a href="http://www.galvanize.com/courses/full-stack/" target="_blank">Galvanize's Full Stack Program</a> in 2015, and through those six months I was able to move beyond the frontend and further my love of creating apps, building APIs, drawing up Data Models, and scaling my creations.
         </p>
-
+        <p>
+          Now I'm back to building Lucky Dog Digital full time and am beginning to help the business reach its full potential as an a la carte virtual agency.<!-- Get a tooltip for this and below-->
+        </p>
+        <p>
+          Currently LDD is accepting <b>SOLO CONTRACTS</b>, <b>FULL STACK CONTRACTS</b>, and <b>PROJECT MANAGEMENT CONTRACTS</b>.
+        </p>
       </div>
-
+    </div>
+  </div>
+  <div class="main-banner">
+    <div class="bio-info-container">
+      <div class="header-container">
+        <span class="header-text title">Technologies</span>
+      </div>
+      <div class="bio-container">
+        <div class="portfolio-tech-container col-md-12">
+          <a href="" class="portfolio-img-container" ng-repeat="tech in technologies">
+            <img class="portfolio-tech-icon" src="{{tech.imgURL}}" alt="{{tech.name}}" title="{{tech.name}}" />
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
