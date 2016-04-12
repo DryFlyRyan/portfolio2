@@ -8,9 +8,6 @@ angular.module('portfolio')
     $scope,
     $element,
     project,
-    title,
-    headline,
-    status,
     close) {
 
   $scope.name = null;
@@ -21,8 +18,6 @@ angular.module('portfolio')
   //  the button has the 'data-dismiss' attribute.
   $scope.close = function() {
  	  close({
-      name: $scope.name,
-      age: $scope.age
     }, 500); // close, but give 500ms for bootstrap to animate
   };
 
@@ -34,10 +29,7 @@ angular.module('portfolio')
     $element.modal('hide');
 
     //  Now call close, returning control to the caller.
-    close({
-      name: $scope.name,
-      age: $scope.age
-    }, 500); // close, but give 500ms for bootstrap to animate
+    close({}, 500); // close, but give 500ms for bootstrap to animate
   };
 
 }]);
